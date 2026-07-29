@@ -102,7 +102,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
           </div>
         </div>
 
-        <div style={{ overflowY: 'auto', paddingRight: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', paddingRight: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
           {voices.map(voice => {
             let displayName = voice.name;
             const lowerName = voice.name.toLowerCase();
@@ -117,14 +117,14 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
             return (
               <div key={voice.voiceURI} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '1rem', borderRadius: '12px',
+                padding: '0.8rem', borderRadius: '12px',
                 background: selectedVoiceURI === voice.voiceURI ? 'var(--bg-gradient)' : '#f8f9fa',
                 border: selectedVoiceURI === voice.voiceURI ? '2px solid var(--primary)' : '2px solid transparent',
                 cursor: 'pointer'
               }} onClick={() => onSelectVoice(voice.voiceURI)}>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <strong style={{ fontSize: '1.1rem' }}>{displayName}</strong>
-                  <span style={{ fontSize: '0.8rem', color: selectedVoiceURI === voice.voiceURI ? 'white' : 'var(--text-light)' }}>
+                  <strong style={{ fontSize: '1rem' }}>{displayName}</strong>
+                  <span style={{ fontSize: '0.75rem', color: selectedVoiceURI === voice.voiceURI ? 'white' : 'var(--text-light)' }}>
                     {voice.localService ? 'Local (Works offline)' : 'Remote (Requires internet)'}
                   </span>
                 </div>
@@ -132,14 +132,14 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
                   onClick={(e) => { e.stopPropagation(); testVoice(voice); }}
                   style={{ padding: '0.5rem', background: 'var(--primary)', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', cursor: 'pointer' }}
                 >
-                  <Volume2 size={20} />
+                  <Volume2 size={16} />
                 </button>
               </div>
             );
           })}
         </div>
 
-        <div style={{ marginTop: '2rem', padding: '1.5rem', background: '#fff1f2', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ marginTop: '1rem', padding: '1rem', background: '#fff1f2', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
           <div>
             <h3 style={{ margin: 0, color: '#be123c' }}>Reset Progress</h3>
             <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: '#9f1239' }}>Delete all earned stars.</p>
