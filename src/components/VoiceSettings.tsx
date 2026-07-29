@@ -59,22 +59,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
           </button>
         </div>
 
-        <div style={{ marginBottom: '2rem', padding: '1.5rem', background: '#ffebee', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <h3 style={{ margin: 0, color: '#d32f2f' }}>Reset Progress</h3>
-            <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: '#c62828' }}>Delete all earned stars.</p>
-          </div>
-          <button 
-            onClick={() => {
-              if (window.confirm("Are you sure you want to reset all your stars?")) {
-                localStorage.removeItem('phonics_completed');
-                window.location.reload();
-              }
-            }}
-            style={{ padding: '0.8rem 1.5rem', background: '#d32f2f', color: 'white', border: 'none', borderRadius: '20px', cursor: 'pointer', fontWeight: 'bold' }}>
-            Reset
-          </button>
-        </div>
+
 
         <p style={{ color: 'var(--text-light)', marginBottom: '1rem', fontSize: '0.9rem' }}>
           Select a voice for reading words and sentences:
@@ -85,7 +70,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
             <span style={{ fontWeight: 'bold', color: 'var(--text-dark)' }}>Reading Speed</span>
             <span style={{ fontWeight: 'bold', color: 'var(--primary)' }}>{Math.round(voiceSpeed * 100)}%</span>
           </div>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div className="speed-buttons-container">
             {[
               { label: 'Very Slow', value: 0.4, icon: '🐢' },
               { label: 'Slow', value: 0.7, icon: '🚶' },
@@ -95,24 +80,18 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
             ].map(setting => (
               <button
                 key={setting.value}
+                className="speed-button"
                 onClick={() => {
                   onSpeedChange(setting.value);
                   localStorage.setItem('phonics_speed', setting.value.toString());
                 }}
                 style={{
-                  flex: 1,
-                  padding: '0.8rem 0.2rem',
                   borderRadius: '10px',
                   border: voiceSpeed === setting.value ? '2px solid var(--primary)' : '1px solid #ddd',
                   background: voiceSpeed === setting.value ? 'var(--bg-gradient)' : 'white',
                   color: voiceSpeed === setting.value ? 'white' : 'var(--text-dark)',
                   fontWeight: voiceSpeed === setting.value ? 'bold' : 'normal',
                   cursor: 'pointer',
-                  fontSize: '0.8rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '0.3rem',
                   boxShadow: voiceSpeed === setting.value ? '0 4px 10px rgba(102, 126, 234, 0.3)' : 'none'
                 }}
               >
@@ -158,6 +137,23 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
               </div>
             );
           })}
+        </div>
+
+        <div style={{ marginTop: '2rem', padding: '1.5rem', background: '#fff1f2', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <h3 style={{ margin: 0, color: '#be123c' }}>Reset Progress</h3>
+            <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9rem', color: '#9f1239' }}>Delete all earned stars.</p>
+          </div>
+          <button 
+            onClick={() => {
+              if (window.confirm("Are you sure you want to reset all your stars?")) {
+                localStorage.removeItem('phonics_completed');
+                window.location.reload();
+              }
+            }}
+            style={{ padding: '0.8rem 1.5rem', background: '#fda4af', color: '#881337', border: 'none', borderRadius: '20px', cursor: 'pointer', fontWeight: 'bold' }}>
+            Reset
+          </button>
         </div>
       </div>
     </div>
