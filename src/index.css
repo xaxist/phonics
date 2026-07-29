@@ -336,16 +336,35 @@ header h1 {
   }
   
   .word-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.5rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
   }
   .word-card {
-    font-size: 1.2rem !important;
-    padding: 1rem 0.5rem !important;
+    font-size: 1.5rem !important;
+    padding: 1.5rem 1rem !important;
   }
   
   .journey-title { font-size: 2rem; }
-  .journey-subtitle { font-size: 1rem; }
+  .world-title { font-size: 1.5rem; }
+  
+  .map-path {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+  .map-node {
+    width: 70px !important;
+    height: 70px !important;
+    font-size: 1rem !important;
+  }
+
+  .detail-header {
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+  }
+  .tabs {
+    margin-bottom: 1rem !important;
+  }
   
   .world-section {
     padding: 2rem 1.5rem !important;
@@ -543,3 +562,20 @@ header h1 {
   .orientation-overlay.phone-landscape-lock { display: flex; }
 }
 
+/* Map Path Layout */
+.map-path {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Lesson Detail Layout */
+.detail-header {
+  margin-bottom: 2rem;
+}
+.tabs {
+  margin-bottom: 2rem;
+}

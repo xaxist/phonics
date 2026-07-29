@@ -255,7 +255,7 @@ export const LessonDetail: React.FC<LessonDetailProps> = ({ lesson, world, onBac
 
   return (
     <div className="lesson-detail" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-      <div className="detail-header" style={{ background: 'white', padding: '1.5rem 2rem', borderRadius: '24px', display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+      <div className="detail-header" style={{ background: 'white', padding: '1.5rem 2rem', borderRadius: '24px', display: 'flex', alignItems: 'center', gap: '1.5rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
         <button className="back-btn" onClick={() => { window.speechSynthesis.cancel(); onBack(); }} style={{ flexShrink: 0, padding: '0.8rem', background: '#f0f0f0', border: 'none', borderRadius: '12px', cursor: 'pointer' }}>
           <ArrowLeft size={24} />
         </button>
@@ -273,7 +273,7 @@ export const LessonDetail: React.FC<LessonDetailProps> = ({ lesson, world, onBac
         </div>
       </div>
 
-      <div className="tabs" style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+      <div className="tabs" style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
         <button 
           className={`tab ${activeTab === 'intro' ? 'active' : ''}`}
           onClick={() => setActiveTab('intro')}

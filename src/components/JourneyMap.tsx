@@ -66,15 +66,7 @@ export const JourneyMap: React.FC<JourneyMapProps> = ({ onSelectLesson }) => {
                 <p className="world-subtitle" style={{ color: 'var(--text-dark)', fontWeight: 600 }}>{world.description}</p>
               </div>
 
-              <div className="map-path" style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(90px, 1fr))',
-                gap: '2.5rem 1.5rem',
-                justifyItems: 'center',
-                padding: '1rem',
-                position: 'relative',
-                zIndex: 1
-              }}>
+              <div className="map-path">
                 {world.lessons.map((lesson, idx) => {
                   const isCompleted = completedLessons[lesson.id];
                   const emojis = ['🎈', '🚀', '🌟', '🍎', '🦊', '🎨', '🧩', '🎸', '🐢', '🦄'];
