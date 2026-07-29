@@ -15,11 +15,22 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ onClose, selectedV
   useEffect(() => {
     const loadVoices = () => {
       const allVoices = window.speechSynthesis.getVoices();
-      const curatedVoices = allVoices.filter(v => {
+      let curatedVoices = allVoices.filter(v => {
         const lowerName = v.name.toLowerCase();
         return (lowerName.includes('google') && lowerName.includes('english')) ||
-               ['samantha', 'alex', 'daniel'].includes(lowerName);
+               lowerName.includes('samantha') || 
+               lowerName.includes('alex') || 
+               lowerName.includes('daniel') ||
+               lowerName.includes('aaron') ||
+               lowerName.includes('fred') ||
+               lowerName.includes('karen') ||
+               lowerName.includes('rishi');
       });
+      
+      // Fallback if specific voices aren't found (e.g. on certain iOS versions)
+      if (curatedVoices.length === 0) {
+        curatedVoices = allVoices.filter(v => v.lang.startsWith('en')).slice(0, 5);
+      }
       
       setVoices(curatedVoices);
     };
