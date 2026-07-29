@@ -9,6 +9,7 @@ export interface World {
   id: number;
   name: string;
   description: string;
+  backgroundUrl?: string;
   lessons: Lesson[];
 }
 

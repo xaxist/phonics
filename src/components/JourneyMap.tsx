@@ -77,6 +77,8 @@ export const JourneyMap: React.FC<JourneyMapProps> = ({ onSelectLesson }) => {
               }}>
                 {world.lessons.map((lesson, idx) => {
                   const isCompleted = completedLessons[lesson.id];
+                  const emojis = ['🎈', '🚀', '🌟', '🍎', '🦊', '🎨', '🧩', '🎸', '🐢', '🦄'];
+                  const icon = emojis[idx % emojis.length];
                   
                   return (
                     <button
