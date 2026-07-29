@@ -308,24 +308,40 @@ header h1 {
 
 @media (max-width: 768px) {
   /* Mobile devices */
-  header {
-    padding: 1rem !important;
-    flex-wrap: wrap;
-    gap: 1rem;
+  .app-header {
+    padding: 0.8rem 1rem !important;
   }
-  header h1 {
-    font-size: 1.5rem !important;
+  .header-title-container {
+    gap: 0.5rem !important;
   }
+  .header-title {
+    font-size: 1.4rem !important;
+  }
+  .header-subtitle {
+    display: none; /* Hide subtitle to save space */
+  }
+  .logo-icon {
+    font-size: 1.8rem !important;
+  }
+  .settings-btn {
+    padding: 0.6rem !important;
+    border-radius: 50% !important; /* Circle button */
+  }
+  .settings-text {
+    display: none; /* Icon only */
+  }
+
   .app-container {
     padding: 1rem;
   }
+  
   .word-grid {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
   }
   .word-card {
-    font-size: 1.5rem !important;
-    padding: 1.5rem 1rem !important;
+    font-size: 1.2rem !important;
+    padding: 1rem 0.5rem !important;
   }
   
   .journey-title { font-size: 2rem; }
@@ -432,6 +448,51 @@ header h1 {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(30px, 30px) scale(1.1); }
   100% { transform: translate(-20px, 50px) scale(0.9); }
+}
+
+/* App Header Classes */
+.app-header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-title-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+.header-subtitle {
+  margin: 0;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.settings-btn {
+  padding: 0.8rem 1.2rem;
+  background: var(--bg-gradient);
+  border: none;
+  border-radius: 16px;
+  color: var(--primary);
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 /* Orientation Lock Overlays */

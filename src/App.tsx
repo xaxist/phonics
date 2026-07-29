@@ -29,42 +29,17 @@ function App() {
         </div>
       </div>
 
-      <header style={{ 
-        padding: '1.5rem 2rem', 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center',
-        background: 'rgba(255,255,255,0.8)',
-        backdropFilter: 'blur(10px)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 10,
-        boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{ fontSize: '2rem' }}>🗺️</span>
-          <h1 style={{ margin: 0, fontSize: '1.5rem', color: 'var(--primary)', fontWeight: 900 }}>
-            Phonics Adventure
-          </h1>
+      <header className="app-header">
+        <div className="header-title-container">
+          <div className="logo-icon" style={{ fontSize: '2.5rem', filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.1))' }}>🦁</div>
+          <div>
+            <h1 className="header-title">Phonics</h1>
+            <p className="header-subtitle">Adventure</p>
+          </div>
         </div>
-        <button 
-          onClick={() => setShowVoiceSettings(true)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.5rem 1rem',
-            background: 'var(--bg-gradient)',
-            border: 'none',
-            borderRadius: '20px',
-            color: 'white',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-          }}
-        >
-          <Settings size={18} />
-          <span>Settings</span>
+        <button className="settings-btn" onClick={() => setShowVoiceSettings(true)}>
+          <Settings size={20} />
+          <span className="settings-text">Settings</span>
         </button>
       </header>
 

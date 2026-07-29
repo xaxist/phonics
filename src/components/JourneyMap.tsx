@@ -50,9 +50,12 @@ export const JourneyMap: React.FC<JourneyMapProps> = ({ onSelectLesson }) => {
               )}
 
               <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.3) 100%)',
+                position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                backgroundImage: `url(${world.backgroundUrl})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.35,
+                borderRadius: 'inherit',
                 zIndex: 0
               }}></div>
               
@@ -75,10 +78,6 @@ export const JourneyMap: React.FC<JourneyMapProps> = ({ onSelectLesson }) => {
                 {world.lessons.map((lesson, idx) => {
                   const isCompleted = completedLessons[lesson.id];
                   
-                  // Symmetrical emojis
-                  const emojis = ['🎈', '🚀', '🌟', '🍎', '🦊', '🎨', '🧩', '🎸', '🐢', '🦄'];
-                  const icon = emojis[idx % emojis.length];
-                  
                   return (
                     <button
                       key={lesson.id}
@@ -86,22 +85,20 @@ export const JourneyMap: React.FC<JourneyMapProps> = ({ onSelectLesson }) => {
                       onClick={() => onSelectLesson(lesson, world)}
                       className={`map-node ${isUnlocked ? 'pulse-hover' : ''}`}
                       style={{
-                        width: '90px',
-                        height: '90px',
+                        width: '80px',
+                        height: '80px',
                         borderRadius: '50%',
-                        border: isUnlocked ? '4px solid rgba(255,255,255,0.9)' : '4px solid rgba(255,255,255,0.3)',
-                        background: isCompleted ? 'linear-gradient(135deg, #4ade80, #22c55e)' : (isUnlocked ? 'rgba(255, 255, 255, 0.85)' : 'rgba(240, 240, 240, 0.4)'),
-                        backdropFilter: 'blur(10px)',
-                        WebkitBackdropFilter: 'blur(10px)',
-                        color: isCompleted ? 'white' : 'var(--text-dark)',
-                        fontWeight: 900,
-                        fontSize: '1.6rem',
+                        background: isUnlocked ? 'white' : 'rgba(255,255,255,0.5)',
+                        border: isUnlocked ? '5px solid var(--primary)' : '5px solid #ccc',
+                        color: isUnlocked ? 'var(--primary)' : '#999',
+                        fontWeight: 'bold',
+                        fontSize: '1.2rem',
                         cursor: isUnlocked ? 'pointer' : 'not-allowed',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        boxShadow: isUnlocked ? '0 12px 24px rgba(0,0,0,0.15), inset 0 2px 10px rgba(255,255,255,1)' : 'none',
+                        boxShadow: isUnlocked ? '0 12px 24px rgba(0,0,0,0.2)' : 'none',
                         transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                         position: 'relative',
                         padding: 0
